@@ -109,6 +109,7 @@ tests:
             {"name": "amq-streams", "source": "redhat-operators", "channel": "amq-streams-2.x", "install_namespace": "openshift-operators","target_namespaces": "", "operator_group": ""}
         ]
       TEST_ADDITIONAL: ""
+      DEBUG: "true"
       TEST_FILTERS: CPaasrunOnly;CPaasrunBoth;~Disruptive&;~Longduration&
       TEST_IMPORTANCE: Critical|High
       TEST_PARALLEL: "3"
