@@ -1,0 +1,21 @@
+ref:
+  as: openshift-logging-tests-ui
+  from: upi-installer
+  cli: latest
+  grace_period: 10m
+  commands: openshift-logging-tests-ui-commands.sh
+  resources:
+    requests:
+      cpu: "1"
+      memory: 3Gi
+  env:
+  - name: LOGGING_VERSION
+    default: ""
+    documentation: |-
+      The version of logging which will be tested
+  - name: TAGS
+    default: ""
+    documentation: |-
+      Apply Cypress tags to filter and execute specific test cases.
+  documentation: |-
+    OpenShift-logging ui test

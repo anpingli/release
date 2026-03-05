@@ -1,0 +1,40 @@
+ref:
+  as: openshift-logging-tests-ui-integration
+  from_image:
+    name: cypress-base
+    namespace: ci
+    tag: latest
+  commands: openshift-logging-tests-ui-integration.sh
+  timeout: 2h0m0s
+  grace_period: 60s
+  resources:
+    requests:
+      cpu: "1"
+      memory: 3Gi
+    limits:
+      cpu: "8"
+      memory: 8Gi
+  env:
+  - name: LOGGING_UI_SCHEMA
+    default: "Viaq"
+    documentation: "The schema used by Logging UI, the Logging UIPlugin will be updated to the correct value"
+  - name: LOGGING_UI_LOGLIMIT
+    default: "20"
+    documentation: "The LogLimit used in Openshift Logging Logging UI, the UIPlugin will be updated to the correct value"
+  - name: LOGGINGUI_TIMEZONE
+    default: false
+    documentation: "if the timeZone is enabled in UIPlugin"
+  - name: ENABLE_DEV_CONSOLE
+    default: false
+    documentation: "if enable dev console for Logging Test, by default, keep it as is"
+  - name: LOGGING_DATAMODE
+    default: "Viaq"
+    documentation: "The DataMode used in Openshift Logging, the ClusterLoggingForwarder will be updated to the correct value if the mode doesn't match"
+  - name: CYPRESS_TAGS
+    default: ""
+    documentation: "Apply Cypress tags to filter and execute specific test cases."
+  - name: CYPRESS_SPEC
+    default: ""
+    documentation: "Specify the spec want to be executed in Cypress tags to"
+  documentation: |-
+    The step to executes the OpenShift Logging UI Integration Cypress tests. The COO, CLO and LO operators must be deployed before executed this test.

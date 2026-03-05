@@ -1,0 +1,15 @@
+{
+	"path": "openshift-logging/tests/ui/openshift-logging-tests-ui-ref.yaml",
+	"owners": {
+		"approvers": [
+			"anpingli",
+			"QiaolingTang",
+			"kabirbhartiRH"
+		],
+		"reviewers": [
+			"anpingli",
+			"QiaolingTang",
+			"kabirbhartiRH"
+		]
+	}
+}

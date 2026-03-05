@@ -39,7 +39,9 @@ tests:
             {"name": "cluster-observability-operator", "source": "coo-catalogsource", "channel": "stable", "install_namespace": "coo", "target_namespaces": "", "operator_group":"coo-og"},
             {"name": "tempo-product", "source": "redhat-operators", "channel": "stable", "install_namespace": "openshift-tempo-operator","target_namespace": "", "operator_group": "openshift-tempo-operator"},
             {"name": "opentelemetry-product", "source": "redhat-operators", "channel": "stable", "install_namespace": "openshift-opentelemetry-operator", "target_namespace": "", "operator_group": "openshift-opentelemetry-operator"},
-            {"name": "advanced-cluster-management", "source": "redhat-operators", "channel": "release-2.15", "install_namespace": "ocm", "target_namespaces": "ocm", "operator_group": "acm-operator-group"}
+            {"name": "advanced-cluster-management", "source": "redhat-operators", "channel": "release-2.15", "install_namespace": "ocm", "target_namespaces": "ocm", "operator_group": "acm-operator-group"},
+            {"name": "cluster-logging", "source": "redhat-operators", "channel": "stable-6.4", "install_namespace": "openshift-logging", "target_namespaces": "", "operator_group": "global-og"},
+            {"name": "loki-operator", "source": "redhat-operators", "channel": "stable-6.4", "install_namespace": "openshift-logging", "target_namespaces": "", "operator_group": "global-og"}
         ]
     test:
     - ref: rhobs-konflux-catalogsource
@@ -49,6 +51,9 @@ tests:
     - ref: rhobs-acm-setup-observability
     - ref: rhobs-acm-alerting-ui-test
     - ref: distributed-tracing-tests-tracing-ui-integration
+    - ref: rhobs-obo-test-harness
+    - ref: logging-ui-test
+    - ref: troubleshoot-ui-test
     - ref: rhobs-obo-test-harness
     workflow: cucushift-installer-rehearse-azure-ipi
 zz_generated_metadata:
